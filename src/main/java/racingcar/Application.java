@@ -10,7 +10,7 @@ public class Application {
 
         String[] carName = scanner.nextLine().split(",");
 
-        Car[] car = new Car[carName.length];
+        //Car[] car = new Car[carName.length];
 
 
 
