@@ -10,7 +10,17 @@ public class Application {
 
         String[] carName = scanner.nextLine().split(",");
 
-        //Car[] car = new Car[carName.length];
+        Car[] cars = new Car[carName.length];
+
+        for(int i=0; i < carName.length; i++){
+            cars[i] = new Car(carName[i]);
+            cars[i].getName();
+        }
+
+        int PositionNum = scanner.nextInt();
+
+
+
 
 
 
