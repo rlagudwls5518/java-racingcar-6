@@ -11,21 +11,39 @@ public class Application {
 
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String[] carName =  Console.readLine().split(",");
-        Car[] car = new Car[carName.length];
-
-        for(int i=0; i< carName.length; i++){
-            car[i] = new Car(carName[i]);
-        }
 
         System.out.println("시도할 회수는 몇회인가요?");
         int TryNum = Integer.parseInt(Console.readLine());
 
+        //예외처리
+        EceptionCheck(carName, TryNum);
+
+        Car[] car = new Car[carName.length];
+        for(int i=0; i< carName.length; i++){
+            car[i] = new Car(carName[i]);
+        }
+        RacingGame(carName, TryNum, car);
+        PrintGame(carName, car);
+
+
+    }
+    public static void EceptionCheck(String[] carName, int TryNum){
+        for(String n : carName){
+            if(n.isEmpty()){
+                throw new IllegalArgumentException("비어있습니다");
+            }
+
+            if (n.length() > 5) {
+                throw new IllegalArgumentException("5자 이하로 입력하세요");
+            }
+        }
+
         if(TryNum <= 0){
             throw new IllegalArgumentException("시도 횟수는 1 이상이어야 합니다.");
         }
-
-
-        System.out.println("실행결과");
+    }
+    public static void RacingGame(String[] carName, int TryNum, Car[] car){
+        System.out.println("실행 결과");
         for(int i=0; i<TryNum; i++){
             for(int j=0; j< carName.length; j++){
                 int randomNumber = Randoms.pickNumberInRange(0, 9);
@@ -38,15 +56,15 @@ public class Application {
             }
             System.out.println();
         }
-
-        System.out.print("최종우승자 : ");
+    }
+    public static void PrintGame(String[] carName,Car[] car){
+        System.out.print("최종 우승자 : ");
         int max = 0;
         for(int i=0; i< carName.length; i++){
             if(max < car[i].getPosition()){
                 max = car[i].getPosition();
             }
         }
-
         boolean first = true;
 
         for(int i=0; i< carName.length; i++){
@@ -58,15 +76,5 @@ public class Application {
                 first = false;
             }
         }
-
-
-
-
-
-
-
-
-
-
     }
 }

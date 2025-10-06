@@ -7,6 +7,9 @@ public class Car {
     private int position = 0;
 
     public Car(String name){
+        if (name == null || name.isBlank()) {
+            throw new IllegalArgumentException("name must not be null or blank");
+        }
         this.name = name;
     }
     public void move(){
