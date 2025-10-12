@@ -14,6 +14,8 @@ public class RacingGame {
                     car[j].move();
                 }
 
+
+
                 car[j].printName();
                 System.out.print(" : ");
                 car[j].printPosition();
