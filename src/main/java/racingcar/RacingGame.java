@@ -13,6 +13,7 @@ public class RacingGame {
                 if(randomNumber>=4){
                     car[j].move();
                 }
+
                 car[j].printName();
                 System.out.print(" : ");
                 car[j].printPosition();
