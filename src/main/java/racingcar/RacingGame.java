@@ -14,7 +14,6 @@ public class RacingGame {
                 }
             }
             View.printRoundResult(car);
-            System.out.println();
         }
     }
 }
