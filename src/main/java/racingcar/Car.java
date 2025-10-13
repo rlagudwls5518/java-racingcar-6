@@ -1,6 +1,5 @@
 package racingcar;
 
-import org.mockito.internal.matchers.Null;
 
 public class Car {
     private String name;
